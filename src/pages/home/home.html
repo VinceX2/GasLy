@@ -5,38 +5,145 @@
     </button>
     <ion-title>Gasolineras</ion-title>
   </ion-navbar>
+  <ion-searchbar
+  [(ngModel)]="myInput"
+  [showCancelButton]="shouldShowCancel"
+  (ionInput)="onInput($event)"
+  (ionCancel)="onCancel($event)">
+</ion-searchbar>
+
 </ion-header>
 
-<ion-content padding>
-  <!-- <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button> -->
-  <ion-card>
+<ion-content paddig>
 
-  <ion-card-header>
-    <ion-icon name="analytics"></ion-icon>
-    Arco <small>#012</small>
-  </ion-card-header>
 
-  <ion-card-content>
-    <!-- Add card content here! -->
-    Arco, Ciudad Industrial, Tijuana, BC
+  <ion-card >
+        <ion-item>
+            <ion-avatar item-start>
+            <img  src="../assets/imgs/arco-logo2.png">
+            </ion-avatar>
+            <h2>Arco <p>#011</p></h2>
 
-    <br>
+            <button ion-button small (click)="goTogasIndividual()" clear  icon-only item-right>
+              <ion-icon name="md-arrow-forward" color="primary" ></ion-icon>
 
-    <ion-item>
-      <ion-icon color="danger" name="md-locate" item-start></ion-icon>
-      <b>0.8 km</b>
-      <ion-badge item-end color="secondary">$17.90</ion-badge>
-    </ion-item>
+            </button>
+        </ion-item>
 
-  </ion-card-content>
+      <ion-card-content>
+        <p>Arco, Ciudad Industrial,<br>Tijuana, BC</p>
+      </ion-card-content>
 
+        <ion-item paddig>
+        <!--  <button ion-button icon-left clear small item-start >    -->
+            <span item-start ><ion-icon id="star" name="md-star-outline" small icon-start></ion-icon>
+               4.5  </span>
+
+          <ion-badge color="green" item-left><strong>$ 17.80</strong></ion-badge>
+
+          <span  class="location">
+            <ion-icon name="pin" color="orange"></ion-icon> 0.8 km
+          </span>
+
+        </ion-item>
+  </ion-card>
+
+
+
+
+
+
+<ion-card>
+      <ion-item>
+          <ion-avatar item-start>
+          <img  src="../assets/imgs/bp-logo.jpg">
+          </ion-avatar>
+          <h2>British Petroleum <p>#008</p></h2>
+      </ion-item>
+
+    <ion-card-content>
+      <p>Madero Calle 9 y 10 1790,
+Zona Centro, 22000
+Tijuana, B.C.</p>
+    </ion-card-content>
+
+      <ion-item paddig>
+      <!--  <button ion-button icon-left clear small item-start >    -->
+          <span item-start ><ion-icon id="star" name="md-star-outline" small icon-start></ion-icon>
+             4.3  </span>
+
+        <ion-badge color="green" item-left><strong>$ 18.01</strong></ion-badge>
+
+        <span  class="location">
+          <ion-icon name="pin" color="orange"></ion-icon> 1.1 km
+        </span>
+
+      </ion-item>
 </ion-card>
+
+
+
+<ion-card>
+      <ion-item>
+          <ion-avatar item-start>
+          <img  src="../assets/imgs/rendichicas-logo.jpg">
+          </ion-avatar>
+          <h2>RendiChicas <p>#027</p></h2>
+      </ion-item>
+
+    <ion-card-content>
+      <p>Veracruz 15-320,
+Tomas Aquino, 22414
+Tijuana, B.C.</p>
+    </ion-card-content>
+
+      <ion-item paddig>
+      <!--  <button ion-button icon-left clear small item-start >    -->
+          <span item-start ><ion-icon id="star" name="md-star-outline" small icon-start></ion-icon>
+             4.3  </span>
+
+        <ion-badge color="green" item-left><strong>$ 18.01</strong></ion-badge>
+
+        <span  class="location">
+          <ion-icon name="pin" color="orange"></ion-icon> 1.1 km
+        </span>
+
+      </ion-item>
+</ion-card>
+
+
+
+<ion-card>
+      <ion-item>
+          <ion-avatar item-start>
+          <img  src="../assets/imgs/chev-logo1.png">
+          </ion-avatar>
+          <h2>Chevron <p>#004</p></h2>
+      </ion-item>
+
+    <ion-card-content>
+      <p>Blv.Lázaro Cárdenas 311,
+La Mesa, 22105
+Tijuana, B.C.</p>
+    </ion-card-content>
+
+      <ion-item paddig>
+      <!--  <button ion-button icon-left clear small item-start >    -->
+          <span item-start ><ion-icon id="star" name="md-star-outline" small icon-start></ion-icon>
+             4.3  </span>
+
+        <ion-badge color="green" item-left><strong>$ 17.97</strong></ion-badge>
+
+        <span  class="location">
+          <ion-icon name="pin" color="orange"></ion-icon> 2.2 km
+        </span>
+
+      </ion-item>
+</ion-card>
+
+
 
 
 

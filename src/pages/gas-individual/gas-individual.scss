@@ -1,14 +1,14 @@
-.ios, .md {
-
-
-page-home{
+page-gas-individual {
 
   ion-card {
     background-color: #fff;
-    max-height: 155px;
+
     position: relative;
 
 
+    img {
+      background-size: contain;
+    }
 
     ion-card-content{
       padding: 0px;
@@ -21,9 +21,9 @@ page-home{
       background-color: #fff;
 
       button{
-        background-color: primary;
-        margin-right: 30px;
-
+        ion-icon{
+          margin-left: 0px;
+        }
       }
 
         ion-badge{
@@ -44,10 +44,4 @@ page-home{
     }
   }
 
-
-
-
-
-
-  }
 }
