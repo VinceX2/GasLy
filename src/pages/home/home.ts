@@ -1,20 +1,27 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import {GasIndividualPage} from '../gas-individual/gas-individual';
+import { NavController, ModalController } from 'ionic-angular';
+import { GasIndividualPage } from '../gas-individual/gas-individual';
+
+//FireBase
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  constructor(public navCtrl: NavController) {
-
+  Gasolineras: Observable<any[]>;
+  constructor(public navCtrl: NavController, private modalCtrl: ModalController,
+    afDB: AngularFireDatabase) {
+    this.Gasolineras = afDB.list('Gasolinera').valueChanges();
   }
 
 
-  goTogasIndividual(){
+
+  goTogasIndividual() {
     this.navCtrl.push(GasIndividualPage);
+    
   }
 
 }
