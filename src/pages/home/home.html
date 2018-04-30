@@ -14,6 +14,11 @@
 
 <ion-content paddig>
 
+  <ion-item>
+    <ion-input [(ngModel)]="message.message" placeholder="Mensaje" type="text"></ion-input>
+  </ion-item>
+
+  <button ion-button full (click)="addMessage(message)">Enviar</button>
 
   <ion-card *ngFor="let Gasolinera of Gasolineras | async">
     <ion-item>
