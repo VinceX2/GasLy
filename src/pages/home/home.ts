@@ -33,5 +33,6 @@ export class HomePage {
       console.log(ref.key);
     })
     this.message.message = "";
+    //Prueba
   }
 }
