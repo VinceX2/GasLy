@@ -20,17 +20,14 @@
 
   <button ion-button full (click)="addMessage(message)">Enviar</button>
 
-  <ion-card *ngFor="let Gasolinera of Gasolineras | async">
+  <ion-card *ngFor="let Gasolinera of Gasolineras | async" (click)="goTogasIndividual()">
     <ion-item>
       <ion-avatar item-start>
         <img [src]="Gasolinera.img">
       </ion-avatar>
       <h2>{{Gasolinera.marca}}<p>{{Gasolinera.sucursal}}</p></h2>
 
-      <button ion-button small (click)="goTogasIndividual()" clear icon-only item-right>
-              <ion-icon name="md-arrow-forward" color="primary" ></ion-icon>
-
-            </button>
+    
     </ion-item>
 
     <ion-card-content>

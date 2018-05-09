@@ -1,8 +1,10 @@
+.ios, .md{
+
+
 page-gas-individual {
 
   ion-card {
     background-color: #fff;
-
     position: relative;
 
 
@@ -21,27 +23,17 @@ page-gas-individual {
       background-color: #fff;
 
       button{
-        ion-icon{
-          margin-left: 0px;
-        }
+        background-color: primary;
+        margin-right: 40px;
+
       }
-
-        ion-badge{
-          margin-left: 18px;
-        }
-
-        span{
-          margin-left: 45px;
-          padding: 0px;
-
-          md-star-outline{
-            color: #F4B400;
-          }
-
-        }
 
 
     }
+
+
   }
+
+}
 
 }
