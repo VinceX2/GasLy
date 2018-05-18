@@ -8,6 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { GasIndividualPage } from '../pages/gas-individual/gas-individual';
 import { SendMessageService } from '../services/messagelist/messagelist.service';
 
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -17,13 +18,16 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import {firebaseConfig} from '../environments/environment';
+import { LoginPage } from '../pages/login/login';
+import { UsuarioProvider } from '../providers/usuario/usuario';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    GasIndividualPage
+    GasIndividualPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -37,14 +41,16 @@ import {firebaseConfig} from '../environments/environment';
     MyApp,
     HomePage,
     ListPage,
-    GasIndividualPage
+    GasIndividualPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
     SendMessageService,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    UsuarioProvider
   ]
 })
 export class AppModule { }
