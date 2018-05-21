@@ -8,7 +8,6 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { GasIndividualPage } from '../pages/gas-individual/gas-individual';
-import { SendMessageService } from '../services/messagelist/messagelist.service';
 import { LoginPage } from "../pages/login/login";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';

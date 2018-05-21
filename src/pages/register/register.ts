@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ToastController,ToastOptions} from 'ionic-angular';
 import { User } from '../../models/Users/user';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { LoginPage } from '../login/login';
 import { HomePage } from '../home/home';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { Profile } from '../../models/profile/profile';
 
 
@@ -21,7 +19,6 @@ export class RegisterPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private afAuth: AngularFireAuth,
-              private afDatabase: AngularFireDatabase,
               private toast: ToastController){
   }
 

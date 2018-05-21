@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, ToastController, IonicPage} from 'ionic-angular';
+import { NavController,ToastController} from 'ionic-angular';
 import { GasIndividualPage } from '../gas-individual/gas-individual';
 
 //FireBase
@@ -7,8 +7,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 
-
-//@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -17,9 +15,8 @@ export class HomePage {
   
   Gasolineras: Observable<any[]>;
   constructor(public navCtrl: NavController, 
-              private modalCtrl: ModalController,
-              private afDB: AngularFireDatabase,
               private afAuth: AngularFireAuth,
+              private afDB: AngularFireDatabase,
               private toast: ToastController) {
     
     this.Gasolineras = afDB.list('Gasolinera').valueChanges();

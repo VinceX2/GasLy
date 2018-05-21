@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams} from 'ionic-angular';
 
 //FireBase
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs/Observable';
 export class GasIndividualPage {
   Gasolineras: Observable<any[]>;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private modalCtrl: ModalController,afDB: AngularFireDatabase) {
+              afDB: AngularFireDatabase) {
   this.Gasolineras = afDB.list('Gasolinera').valueChanges();
 }
 
