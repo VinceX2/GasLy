@@ -5,21 +5,12 @@
     </button>
         <ion-title>Gasolineras</ion-title>
     </ion-navbar>
-    <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
-    </ion-searchbar>
+    <!--<ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+    </ion-searchbar> -->
 
 </ion-header>
 
-
-
 <ion-content paddig>
-
-    <ion-item>
-        <ion-input [(ngModel)]="message.message" placeholder="Mensaje" type="text"></ion-input>
-    </ion-item>
-
-    <button ion-button full (click)="addMessage(message)">Enviar</button>
-
     <ion-card *ngFor="let Gasolinera of Gasolineras | async" (click)="goTogasIndividual()">
         <ion-item>
             <ion-avatar item-start>

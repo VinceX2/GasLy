@@ -1,0 +1,21 @@
+<ion-header>
+
+    <ion-navbar color="secondary">
+        <ion-title>Recuperar contraseña</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <p style="">Por favor ingrese su correo electrónico para buscar su cuenta.</p>
+
+    <ion-item>
+        <ion-label floating>Correo Electrónico</ion-label>
+        <ion-input type="email" [(ngModel)]="user.email">Correo Electrónico</ion-input>
+    </ion-item>
+    <br>
+    <br>
+    <button ion-button full color="primary">Enviar</button>
+
+</ion-content>

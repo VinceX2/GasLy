@@ -1,50 +1,46 @@
 <ion-content padding class="fondo">
 
-  <img src="../../assets/imgs/logo5.png">
+    <img src="../../assets/imgs/logo5.png">
 
-  <ion-item class="fondo">
-    <ion-label floating>
-      <ion-icon name="mail"></ion-icon>
-      Email
-    </ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+    <ion-item class="fondo">
+        <ion-label floating>
+            <ion-icon name="mail"></ion-icon>
+            Email
+        </ion-label>
+        <ion-input type="email" [(ngModel)]="user.email" required></ion-input>
+    </ion-item>
 
-  <ion-item class="fondo">
-    <ion-label floating>
-      <ion-icon name="lock"></ion-icon>
-      Contraseña
-    </ion-label>
-    <ion-input type="Password"></ion-input>
-  </ion-item>
+    <ion-item class="fondo">
+        <ion-label floating>
+            <ion-icon name="lock"></ion-icon>
+            Contraseña
+        </ion-label>
+        <ion-input type="Password" [(ngModel)]="user.password" required></ion-input>
+    </ion-item>
 
+    <p><a (click)="fPassword()">¿Olvidaste tu Contraseña?</a></p>
 
-  <p>Olvidaste Contraseña?</p>
+    <button ion-button block (click)="login()">Iniciar Sesión</button>
 
-  <button ion-button block>
-    <ion-icon name="log-in" class="iconlogin"> </ion-icon>
-        Iniciar Sesión
-    </button>
+    <p class="p2">O inicia sesión con:</p>
 
-  <p class="p2">O inicia sesión con:</p>
-
-  <ion-row>
-    <ion-col>
-      <button id="twitter" ion-button full color="twitter">
+    <ion-row>
+        <ion-col>
+            <button id="twitter" ion-button full color="twitter">
         <ion-icon name="logo-twitter"></ion-icon>
       </button>
-    </ion-col>
-    <ion-col>
-      <button ion-button full color="fb" (click)="signInWithFacebook()">
+        </ion-col>
+        <ion-col>
+            <button ion-button full color="fb">
         <ion-icon name="logo-facebook"></ion-icon>
       </button>
-    </ion-col>
-    <ion-col>
-      <button ion-button full color="gplus">
+        </ion-col>
+        <ion-col>
+            <button ion-button full color="gplus">
         <ion-icon name="logo-googleplus"></ion-icon>
       </button>
-    </ion-col>
-  </ion-row>
+        </ion-col>
+    </ion-row>
 
-  <p class="p2">Nuevo aqui? Registrate</p>
+    <p class="p2">Nuevo aqui? <a (click)="register()">Registrate</a></p>
 </ion-content>

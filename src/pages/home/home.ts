@@ -1,25 +1,27 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController, ModalController, ToastController, IonicPage} from 'ionic-angular';
 import { GasIndividualPage } from '../gas-individual/gas-individual';
 
 //FireBase
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 
-import { Send } from './../../models/message/send.model';
-import {SendMessageService } from './../../services/messagelist/messagelist.service';
 
+//@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  message: Send = {
-    message: '',
-  }
+  
   Gasolineras: Observable<any[]>;
-  constructor(public navCtrl: NavController, private modalCtrl: ModalController,
-    afDB: AngularFireDatabase,private add: SendMessageService) {
+  constructor(public navCtrl: NavController, 
+              private modalCtrl: ModalController,
+              private afDB: AngularFireDatabase,
+              private afAuth: AngularFireAuth,
+              private toast: ToastController) {
+    
     this.Gasolineras = afDB.list('Gasolinera').valueChanges();
   }
 
@@ -28,11 +30,22 @@ export class HomePage {
 
   }
 
-  addMessage(message:Send){
-    this.add.addMessage(message).then(ref => {
-      console.log(ref.key);
-    })
-    this.message.message = "";
-    //Prueba
+
+  ionViewWillLoad(){
+    this.afAuth.authState.subscribe(data => {
+      if (data && data.email && data.uid){
+        this.toast.create({
+          message: `Bienvenido a GasLy`,
+          duration: 3000
+        }).present();
+      }    
+      else{
+        this.toast.create({
+          message: `No se encontro la autentificación`,
+          duration: 3000
+        }).present();
+      }
+    });
   }
+
 }
