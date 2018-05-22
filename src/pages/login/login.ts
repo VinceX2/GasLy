@@ -1,6 +1,6 @@
 //Ionic
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ToastController,ToastOptions} from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController,ToastOptions, MenuController} from 'ionic-angular';
 //Models
 import { User } from "../../models/Users/user";
 //Firebase
@@ -21,8 +21,11 @@ export class LoginPage {
     public navCtrl: NavController,
     private afAuth: AngularFireAuth,
     public navParams: NavParams,
-    private toast: ToastController
-  ) {}
+    private toast: ToastController,
+    private menu: MenuController
+  ) {
+    this.menu.enable(false);
+  }
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');

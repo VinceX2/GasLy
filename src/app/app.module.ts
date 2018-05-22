@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
@@ -14,18 +14,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 //FireBase
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabaseModule} from 'angularfire2/database';
+import { AngularFireDatabase} from "angularfire2/database-deprecated";
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {firebaseConfig} from '../environments/environment';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    ListPage,
-    GasIndividualPage,
-    LoginPage,
-  ],
+  declarations: [MyApp, HomePage, ListPage, GasIndividualPage, LoginPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -33,16 +28,11 @@ import {firebaseConfig} from '../environments/environment';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+
   ],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    ListPage,
-    GasIndividualPage,
-    LoginPage
-  ],
+  entryComponents: [MyApp, HomePage, ListPage, GasIndividualPage, LoginPage],
   providers: [
     StatusBar,
     SplashScreen,
@@ -50,4 +40,4 @@ import {firebaseConfig} from '../environments/environment';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
   ]
 })
-export class AppModule { }
+export class AppModule {}

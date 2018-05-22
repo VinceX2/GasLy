@@ -25,7 +25,12 @@ export class ForgotPage {
   }
 
   sendPassword(){
-    this.afAuth.auth.sendPasswordResetEmail(this.user.email)
+    try {
+      this.afAuth.auth.sendPasswordResetEmail("wlbsstf@ldebaat9jp8x3xd6.ga");
+    } catch (e) {
+      console.log(e)
+    }
+
   }
 
 }

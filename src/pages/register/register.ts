@@ -4,6 +4,7 @@ import { User } from '../../models/Users/user';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { HomePage } from '../home/home';
 import { Profile } from '../../models/profile/profile';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 @IonicPage()
@@ -19,15 +20,27 @@ export class RegisterPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private afAuth: AngularFireAuth,
-              private toast: ToastController){
+              private toast: ToastController,
+              private afDatabase: AngularFireDatabase,){
   }
 
   async register(user: User){
     try  {
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email,
         user.password);  
+      const firebaseUser = this.afAuth.auth.currentUser;
       console.log(result);  
       if (result) {
+          firebaseUser.updateProfile({
+            displayName: user.name,
+            photoURL: ""
+          
+          }).then(function () {
+          // Update successful.
+        }).catch(function (error) {
+          // An error happened.
+        });
+
         this.navCtrl.setRoot(HomePage)
       }
     }

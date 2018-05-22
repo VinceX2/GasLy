@@ -10,8 +10,9 @@
 
 </ion-header>
 
+
 <ion-content paddig>
-    <ion-card *ngFor="let Gasolinera of Gasolineras | async" (click)="goTogasIndividual()">
+    <ion-card *ngFor="let Gasolinera of (Gasolineras | async)" (click)="goTogasIndividual()">
         <ion-item>
             <ion-avatar item-start>
                 <img [src]="Gasolinera.img">

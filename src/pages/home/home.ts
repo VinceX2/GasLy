@@ -1,48 +1,48 @@
 import { Component } from '@angular/core';
-import { NavController,ToastController} from 'ionic-angular';
+import { NavController,ToastController, MenuController} from 'ionic-angular';
 import { GasIndividualPage } from '../gas-individual/gas-individual';
 
 //FireBase
-import { AngularFireDatabase } from 'angularfire2/database';
+import {AngularFireDatabase} from "angularfire2/database";
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
+import { Profile } from '../../models/profile/profile';
+import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: "page-home",
+  templateUrl: "home.html"
 })
 export class HomePage {
-  
+  profile = {} as Profile;
   Gasolineras: Observable<any[]>;
-  constructor(public navCtrl: NavController, 
-              private afAuth: AngularFireAuth,
-              private afDB: AngularFireDatabase,
-              private toast: ToastController) {
-    
-    this.Gasolineras = afDB.list('Gasolinera').valueChanges();
+  constructor(
+    public navCtrl: NavController,
+    private afAuth: AngularFireAuth,
+    private afDB: AngularFireDatabase,
+    private toast: ToastController,
+    private menu: MenuController
+  ) {
+    this.Gasolineras = afDB.list("Gasolinera").valueChanges();
+    this.menu.enable(true);
   }
-
   goTogasIndividual() {
     this.navCtrl.push(GasIndividualPage);
-
   }
 
-
-  ionViewWillLoad(){
+  ionViewWillLoad() {
     this.afAuth.authState.subscribe(data => {
-      if (data && data.email && data.uid){
-        this.toast.create({
-          message: `Bienvenido a GasLy`,
-          duration: 3000
-        }).present();
-      }    
-      else{
-        this.toast.create({
-          message: `No se encontro la autentificación`,
-          duration: 3000
-        }).present();
-      }
+      if (data && data.email && data.uid) {
+        const user = this.afAuth.auth.currentUser;
+        console.log(user);
+        this.profile.name = user.displayName;
+        this.toast
+          .create({
+            message: `Bienvenido a GasLy`,
+            duration: 3000
+          })
+          .present();
+      } 
     });
   }
-
 }
