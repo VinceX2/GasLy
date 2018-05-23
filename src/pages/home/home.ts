@@ -35,15 +35,12 @@ export class HomePage {
   ionViewWillLoad() {
     this.afAuth.authState.subscribe(data => {
       if (data && data.email && data.uid) {
-        const user = this.afAuth.auth.currentUser;
-        console.log(user);
-        this.profile.name = user.displayName;
-        this.toast
-          .create({
+        //const user = this.afAuth.auth.currentUser;
+        //this.profile.name = user.displayName;
+        this.toast.create({
             message: `Bienvenido a GasLy`,
             duration: 3000
-          })
-          .present();
+          }).present();
       } 
     });
   }

@@ -1,6 +1,6 @@
 //Ionic
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ToastController,ToastOptions, MenuController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ToastOptions, MenuController, AlertController} from 'ionic-angular';
 //Models
 import { User } from "../../models/Users/user";
 //Firebase
@@ -22,7 +22,8 @@ export class LoginPage {
     private afAuth: AngularFireAuth,
     public navParams: NavParams,
     private toast: ToastController,
-    private menu: MenuController
+    private menu: MenuController,
+    public alert: AlertController
   ) {
     this.menu.enable(false);
   }
@@ -38,19 +39,29 @@ export class LoginPage {
     }*/
 
   login() {
-    try {
+    try {      
       this.afAuth.auth.signInWithEmailAndPassword(
-        this.user.email,
-        this.user.password
-      );
-      this.navCtrl.setRoot(HomePage);
-    } catch (e) {
+          this.user.email,
+          this.user.password
+      ).then(data => {
+          this.navCtrl.setRoot(HomePage);
+      })
+      .catch(error => { 
+        switch (error.code) {
+          case "auth/invalid-email":
+            this.showAlert("Oops", "Correo electrónico invalido");
+            break;
+          default:
+            this.showAlert("Oops", "Tenemos un problema");
+            break;
+        }
+      });
+    }catch (e) {
       this.toastOptions = {
-        message: `Usuario no registrado`,
+        message: `Oops, Usuario no registrado`,
         duration: 3000
       };
       this.toast.create(this.toastOptions).present();
-      console.error(e);
     }
   }
   register() {
@@ -58,5 +69,13 @@ export class LoginPage {
   }
   fPassword() {
     this.navCtrl.push("ForgotPage");
+  }
+  showAlert(title: string, subtitle: string) {
+    let alert = this.alert.create({
+      title: title,
+      subTitle: subtitle,
+      buttons: ["OK"]
+    });
+    alert.present();
   }
 }

@@ -10,10 +10,7 @@
             <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" [class.activeHighlight]="checkActive(p)">
               {{p.title}}
             </button>
-            <button ion-button block icon-left (click)="logOut()">Cerrar Sesión
-  <ion-icon name="md-log-out"></ion-icon>
-</button>
-
+            <button ion-button block (click)="logOut()">Cerrar Sesión</button>
         </ion-list>
     </ion-content>
 
