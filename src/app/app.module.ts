@@ -16,6 +16,9 @@ import {MapaGasolineraPage} from '../pages/mapa-gasolinera/mapa-gasolinera';
 //plug ins
 import { Geolocation } from '@ionic-native/geolocation';
 
+//mapa
+import {AgmCoreModule} from '@agm/core';
+
 //FireBase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
@@ -35,6 +38,9 @@ import { UbicacionProvider } from '../providers/ubicacion/ubicacion';
     AngularFireAuthModule,
     HttpClientModule,
     HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAbixq8dIifab53x1pfNpyuVh0LfgQMAmI'
+    })
 
   ],
   bootstrap: [IonicApp],

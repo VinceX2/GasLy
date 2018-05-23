@@ -33,13 +33,16 @@ $colors: (
         green:      #4CD95A, 
         twitter:    #00ACED, 
         fb:         #3A589E, 
-        gplus:      #D34836
+        gplus:      #D34836,
+        regular:      #64DD17,
+        premium:        #C30000,
+        diesel:         #607D8B,
             );
 
 
 
 // App iOS Variables
-$fab-content-margin: 15px;
+$fab-content-margin: 20px;
 // --------------------------------------------------
 // iOS only Sass variables can go here
 // App Material Design Variables
