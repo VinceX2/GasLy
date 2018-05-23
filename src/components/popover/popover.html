@@ -1,0 +1,37 @@
+<ion-list>
+    <ion-row>
+        <ion-col>
+            <button ion-item detail-none class="text-button text-smaller" icon-left>
+<ion-icon name="trending-up"></ion-icon>Precio
+
+          </button>
+        </ion-col>
+        <ion-col>
+            <button ion-item detail-none class="text-button text-larger" icon-left>
+              <ion-icon name="trending-down"></ion-icon>Precio
+            </button>
+
+        </ion-col>
+    </ion-row>
+    <ion-scroll scrollx="true" style="width:100%; height:70px">
+        <div class="inner">
+            <ion-row>
+                <ion-col *ngFor="let Gasolinera of (Gasolineras | async)" class="dot">
+                    <button>
+            <ion-avatar item-start>
+              <img [src]="Gasolinera.img">
+              </ion-avatar>
+            </button>
+                </ion-col>
+            </ion-row>
+
+        </div>
+    </ion-scroll>
+    <ion-row>
+        <ion-col>
+            <button ion-item detail-none class="text-button text-smaller" icon-left>
+            <ion-icon name="star"></ion-icon>Rating
+            </button>
+        </ion-col>
+    </ion-row>
+</ion-list>

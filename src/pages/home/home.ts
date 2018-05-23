@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { NavController,ToastController, MenuController} from 'ionic-angular';
+import { NavController,ToastController, MenuController, PopoverController} from 'ionic-angular';
 import { GasIndividualPage } from '../gas-individual/gas-individual';
 import { EstacionPage } from '../estacion/estacion';
-
+import { PopoverComponent } from '../../components/popover/popover';
 //FireBase
 import {AngularFireDatabase} from "angularfire2/database";
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import { Profile } from '../../models/profile/profile';
 import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+
 
 @Component({
   selector: "page-home",
@@ -23,7 +24,8 @@ export class HomePage {
     private afAuth: AngularFireAuth,
     private afDB: AngularFireDatabase,
     private toast: ToastController,
-    private menu: MenuController
+    private menu: MenuController,
+    public popoverCtrl: PopoverController
   ) {
     this.Gasolineras = afDB.list("Gasolinera").valueChanges();
     this.menu.enable(true);
@@ -37,11 +39,23 @@ export class HomePage {
       if (data && data.email && data.uid) {
         //const user = this.afAuth.auth.currentUser;
         //this.profile.name = user.displayName;
-        this.toast.create({
+        this.toast
+          .create({
             message: `Bienvenido a GasLy`,
             duration: 3000
-          }).present();
-      } 
+          })
+          .present();
+      }
+    });
+  }
+
+  presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverComponent);
+    popover.present({
+      ev: myEvent
+    });
+    popover.onDidDismiss(popoverData =>{
+      console.log(popoverData);
     });
   }
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, NavController} from 'ionic-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
@@ -19,9 +19,18 @@ import { AngularFireDatabase} from "angularfire2/database-deprecated";
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {firebaseConfig} from '../environments/environment';
 import { EstacionPage } from '../pages/estacion/estacion';
+import { PopoverComponent } from '../components/popover/popover';
 
 @NgModule({
-  declarations: [MyApp, HomePage, ListPage, GasIndividualPage, LoginPage,EstacionPage],
+  declarations: [
+    MyApp,
+    HomePage,
+    ListPage,
+    GasIndividualPage,
+    LoginPage,
+    EstacionPage,
+    PopoverComponent
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -29,16 +38,23 @@ import { EstacionPage } from '../pages/estacion/estacion';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     HttpClientModule,
-    HttpModule,
-
+    HttpModule
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, ListPage, GasIndividualPage, LoginPage,EstacionPage],
+  entryComponents: [
+    MyApp,
+    HomePage,
+    ListPage,
+    GasIndividualPage,
+    LoginPage,
+    EstacionPage,
+    PopoverComponent
+  ],
   providers: [
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule {}
