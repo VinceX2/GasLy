@@ -18,9 +18,10 @@ import { AngularFireDatabaseModule} from 'angularfire2/database';
 import { AngularFireDatabase} from "angularfire2/database-deprecated";
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {firebaseConfig} from '../environments/environment';
+import { EstacionPage } from '../pages/estacion/estacion';
 
 @NgModule({
-  declarations: [MyApp, HomePage, ListPage, GasIndividualPage, LoginPage],
+  declarations: [MyApp, HomePage, ListPage, GasIndividualPage, LoginPage,EstacionPage],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -32,7 +33,7 @@ import {firebaseConfig} from '../environments/environment';
 
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, ListPage, GasIndividualPage, LoginPage],
+  entryComponents: [MyApp, HomePage, ListPage, GasIndividualPage, LoginPage,EstacionPage],
   providers: [
     StatusBar,
     SplashScreen,

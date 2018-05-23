@@ -1,0 +1,47 @@
+/*page-estacion {
+
+
+    ion-card{
+        padding: 0px;
+        background-color: #fff;
+        
+
+
+
+    }
+
+} */
+
+
+
+.ios,
+.md {
+    page-estacion {
+        ion-card {
+            background-color: #fff;
+            margin-left: 10px;
+            margin-right: 10px; 
+            position: relative;
+
+            ion-card-content {
+                padding: 10px;
+                margin-left: 26px;
+            }
+
+            ion-item {
+                padding: 10px;
+                
+                background-color: #fff;
+                
+                ion-badge {
+                    margin-right: 18px;
+                }
+                span {
+                    margin-left: 45px;
+                    padding: 0px;
+                    
+                }
+            }
+        }
+    }
+}

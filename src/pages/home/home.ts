@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController,ToastController, MenuController} from 'ionic-angular';
 import { GasIndividualPage } from '../gas-individual/gas-individual';
+import { EstacionPage } from '../estacion/estacion';
 
 //FireBase
 import {AngularFireDatabase} from "angularfire2/database";
@@ -16,6 +17,7 @@ import { FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/d
 export class HomePage {
   profile = {} as Profile;
   Gasolineras: Observable<any[]>;
+
   constructor(
     public navCtrl: NavController,
     private afAuth: AngularFireAuth,
@@ -27,7 +29,7 @@ export class HomePage {
     this.menu.enable(true);
   }
   goTogasIndividual() {
-    this.navCtrl.push(GasIndividualPage);
+    this.navCtrl.push(EstacionPage);
   }
 
   ionViewWillLoad() {
