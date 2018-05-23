@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MapaGasolineraPage } from '../mapa-gasolinera/mapa-gasolinera';
 
 /**
  * Generated class for the EstacionPage page.
@@ -20,6 +21,11 @@ export class EstacionPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EstacionPage');
+  }
+
+
+  goToMapa(){
+    this.navCtrl.push(MapaGasolineraPage);
   }
 
 }

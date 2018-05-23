@@ -11,6 +11,13 @@ import { GasIndividualPage } from '../pages/gas-individual/gas-individual';
 import { LoginPage } from "../pages/login/login";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {MapaGasolineraPage} from '../pages/mapa-gasolinera/mapa-gasolinera';
+
+//plug ins
+import { Geolocation } from '@ionic-native/geolocation';
+
+//mapa
+import {AgmCoreModule} from '@agm/core';
 
 //FireBase
 import { AngularFireModule } from 'angularfire2';
@@ -19,18 +26,11 @@ import { AngularFireDatabase} from "angularfire2/database-deprecated";
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {firebaseConfig} from '../environments/environment';
 import { EstacionPage } from '../pages/estacion/estacion';
+import { UbicacionProvider } from '../providers/ubicacion/ubicacion';
 import { PopoverComponent } from '../components/popover/popover';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage,
-    ListPage,
-    GasIndividualPage,
-    LoginPage,
-    EstacionPage,
-    PopoverComponent
-  ],
+  declarations: [MyApp, HomePage, ListPage, GasIndividualPage, LoginPage,EstacionPage,MapaGasolineraPage,PopoverComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -38,23 +38,21 @@ import { PopoverComponent } from '../components/popover/popover';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAbixq8dIifab53x1pfNpyuVh0LfgQMAmI'
+    })
+
   ],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage,
-    ListPage,
-    GasIndividualPage,
-    LoginPage,
-    EstacionPage,
-    PopoverComponent
-  ],
+  entryComponents: [MyApp, HomePage, ListPage, GasIndividualPage, LoginPage,EstacionPage,MapaGasolineraPage,PopoverComponent],
   providers: [
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    UbicacionProvider,
+    Geolocation
   ]
 })
 export class AppModule {}

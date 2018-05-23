@@ -11,56 +11,73 @@
                 <img src="../../assets/imgs/arco-logo2.png">
             </ion-avatar>
             <h2>Arco <small>#012</small></h2>
-            <p>Arco, Ciudad Industrial, Tijuana, BC</p>
+            <p>Calz del Tecnológico,Mesa de Otay, Tijuana, B.C.</p>
         </ion-item>
-    </ion-card>
 
-    <ion-card>
         <ion-item>
-            <span>Rating</span>
+            <span item-left>Rating</span>
             <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star-half"></ion-icon>
             4.5
-        </ion-item>
-    </ion-card>
+          </ion-item>
+  </ion-card>
+
+
+
+   
 
     <ion-card>
         <ion-item>
-            <strong>Regular</strong>
-            <ion-badge color="primary" item-end>$ 17.90</ion-badge>
+            <strong>Regular</strong> <ion-badge color="regular" item-end>$ 17.90</ion-badge>
         </ion-item>
         <ion-item>
-            <strong>Premium</strong>
-            <ion-badge color="secondary" item-end>$ 18.90</ion-badge>
+            <strong>Premium</strong> <ion-badge color="premium" item-end>$ 18.90</ion-badge>
         </ion-item>
         <ion-item>
-            <strong>Diesel</strong>
-            <ion-badge color="dark" item-end>$ 17.90</ion-badge>
+            <strong>Diesel</strong><ion-badge color="diesel" item-end>$ 20.90</ion-badge>
+            
         </ion-item>
     </ion-card>
 
-    <ion-card>
-        <ion-item>
-            <span item-left>
-        <ion-icon name="timer"></ion-icon>  
-        18 min
-       </span>
-            <span item-left>
-        <ion-icon name="pin"></ion-icon>
-        0.9 km
-       </span>
-            <button ion-button icon-left clear>
-        <ion-icon name="navigate"></ion-icon>
-            Ir
-       </button>
-        </ion-item>
-    </ion-card>
+   
 
-    <ion-card>
-        <img src="../../assets/imgs/mapa.PNG">
-        <ion-fab bottom right>
-            <button ion-fab>
-          <ion-icon name="pin"></ion-icon>
-        </button>
-        </ion-fab>
-    </ion-card>
+
+
+    
+
+      <ion-card>
+
+          <ion-item>
+              <span item-left>
+                <ion-icon name="timer" color="diesel"></ion-icon>  
+                18 min</span>
+
+
+              <span >
+                <ion-icon name="pin" color="danger"></ion-icon>
+                0.9 km</span>
+
+              
+
+            </ion-item>
+
+          <img src="../../assets/imgs/mapa.PNG">
+          <ion-fab right bottom bottom>
+            <button ion-fab (click)="goToMapa()">
+              <ion-icon name="pin"></ion-icon>
+            </button>
+          </ion-fab>
+
+
+
+      </ion-card>
+
+
+
+
+
+
 </ion-content>
